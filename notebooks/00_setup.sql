@@ -1,6 +1,5 @@
 -- Setup script for the retail analytics project.
 -- Creates the catalog, medallion schemas (bronze, silver, gold) and a volume for raw CSV files.
--- If you cannot create catalogs, replace "dunnhumby" with an existing catalog, e.g. "workspace".
 
 CREATE CATALOG IF NOT EXISTS dunnhumby
 COMMENT 'Retail analytics project based on the Dunnhumby The Complete Journey dataset';
