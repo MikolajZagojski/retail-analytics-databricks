@@ -15,6 +15,7 @@ CSV files → Unity Catalog volume → bronze → silver → gold
 ## Notes from the bronze layer
 
 - Each CSV is loaded with `read_files` and `CREATE OR REPLACE TABLE`, so the notebook can be run again without cleaning up first.
+- Each bronze table also has `_source_file` and `_ingested_at` columns, so every row can be traced back to the file and the load it came from.
 - After loading I checked row counts, `_rescued_data` and NULLs. No table is empty, no rows were rescued and there are no NULLs at all. That still does not mean the data is complete: only 801 households have demographic data, so joins to that table have to be `LEFT JOIN`.
 - Column names are inconsistent (some upper case, some lower case). I am leaving that for silver.
 
